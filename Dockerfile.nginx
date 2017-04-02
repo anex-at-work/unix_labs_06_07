@@ -1,0 +1,4 @@
+FROM nginx:latest
+MAINTAINER anex.work@gmail.com
+
+CMD /bin/bash -c "sed 's|NGINX_HOST|\"$NGINX_HOST\"|g' < /tmp/nginx/site.template > /etc/nginx/conf.d/site.conf && rm /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
